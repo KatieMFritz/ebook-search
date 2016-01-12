@@ -1,0 +1,51 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    domain_name (0.5.25)
+      unf (>= 0.0.5, < 1.0.0)
+    ffi (1.9.10-x86-mingw32)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    listen (3.0.5)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
+    mime-types (2.99)
+    mini_portile2 (2.0.0)
+    netrc (0.11.0)
+    nokogiri (1.6.7.1-x86-mingw32)
+      mini_portile2 (~> 2.0.0.rc2)
+    rack (1.6.4)
+    rack-protection (1.5.3)
+      rack
+    rb-fsevent (0.9.7)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
+    rest-client (1.8.0-x86-mingw32)
+      ffi (~> 1.9)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    restart (1.0.2)
+      listen (~> 3.0)
+    sinatra (1.4.6)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    tilt (2.0.2)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1-x86-mingw32)
+    wdm (0.1.1)
+
+PLATFORMS
+  x86-mingw32
+
+DEPENDENCIES
+  nokogiri
+  rest-client
+  restart
+  sinatra (~> 1.4.6)
+  wdm
+
+BUNDLED WITH
+   1.10.6

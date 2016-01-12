@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Your Profile</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+  </head>
+
+  <body class="container">
+    <% @opac_records.each do |book| %>
+      <div class="book">
+        <h3><a href="<%= book[:link] %>"><%= book[:title] %></a></h3>
+        <p>Author: <%= book[:author] %></p>
+      </div>
+    <% end %>
+
+  </body>
+</html>
