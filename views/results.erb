@@ -10,27 +10,33 @@
   <body class="container">
     <header>
       <h1>Find free ebooks</h1>
+      <p>You searched for <strong><%= params['keyword'] %></strong></p>.
     </header>
     <main>
       <section>
-        <h2>Capital Area District Library (OPAC)</h2>
-        <% @opac_records.each do |book| %>
-          <div class="book">
-            <h3><a href="<%= book[:link] %>"><%= book[:title] %></a></h3>
-            <p>Author: <%= book[:author] %></p>
-          </div>
-        <% end %>
+        <h2><a href="<%= @opac_url %>">Capital Area District Library</a></h2>
+        <p class="results-count"><%= @opac_count %> results</p>
+        <ol class="book-list">
+          <% @opac_records.each do |book| %>
+            <li class="book">
+              <a href="<%= book[:link] %>"><%= book[:title] %></a>
+              by <%= book[:author] %>
+            </li>
+          <% end %>
+        </ul>
       </section>
       <hr>
       <section>
-        <h2>Kindle Unlimited</h2>
-        <p>Results and search link will go here</p>
-        <% @ku_records.each do |book| %>
-          <div class="book">
-            <h3><a href="<%= book[:link] %>"><%= book[:title] %></a></h3>
-            <p>Author: <%= book[:author] %></p>
-          </div>
-        <% end %>
+        <h2><a href="<%= @ku_url %>">Kindle Unlimited</a></h2>
+        <p class="results-count"><%= @ku_count %></p>
+        <ol class="book-list">
+          <% @ku_records.each do |book| %>
+            <li class="book">
+              <a href="<%= book[:link] %>"><%= book[:title] %></a>
+              by <%= book[:author] %>
+            </li>
+          <% end %>
+        </ul>
       </section>
 
    </main>

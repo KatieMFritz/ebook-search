@@ -4,6 +4,9 @@ require 'nokogiri'
 
 class MyWebApp < Sinatra::Base
   get '/' do
+    erb :search
+  end
+  get '/results' do
     @opac_records = opac("octavia butler")
     @ku_records = ku("octavia butler")
     erb :results
@@ -12,8 +15,10 @@ class MyWebApp < Sinatra::Base
   helpers do
     def opac(keyword)
       keyword = keyword.split(/\s+/).join('+')
-      page = RestClient.get("http://opac.cadl.org/search/X?SEARCH=#{keyword}&m=t&searchscope=15&a=&l=&Da=&Db=&p=&SORT=D")
+      @opac_url = "http://opac.cadl.org/search/X?SEARCH=#{keyword}&m=t&searchscope=15&a=&l=&Da=&Db=&p=&SORT=D"
+      page = RestClient.get(@opac_url)
       html = Nokogiri::HTML(page)
+      @opac_count = html.css("td.browseHeaderData").first.text[/(\d+.*)\)/, 1]
       html.css("div.briefcitDetails").map do |book|
         title = book.css("h2.briefcitTitle a").first
         author = book.css(".briefcitAuthor").first
@@ -28,10 +33,10 @@ class MyWebApp < Sinatra::Base
 
     def ku(keyword)
       keyword = keyword.split(/\s+/).join('+')
-      url = "http://www.amazon.com/s/?url=node%3D9069934011&field-keywords=#{keyword}"
-      page = RestClient.get(url)
+      @ku_url = "http://www.amazon.com/s/?url=node%3D9069934011&field-keywords=#{keyword}"
+      page = RestClient.get(@ku_url)
       html = Nokogiri::HTML(page)
-      count = html.css("h2#s-result-count").text
+      @ku_count = html.css("h2#s-result-count").text[/(\d+.*results)/, 1]
       html.css("li.s-result-item").map do |book|
         title = book.css("h2.s-access-title").first
         author = book.css("span.a-size-small.a-color-secondary")[3]
