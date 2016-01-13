@@ -5,10 +5,10 @@
         <p class="results-count"><%= @kindle_unlimited_ebook_search.total_results_count %></p>
         <ol class="book-list">
           <% @kindle_unlimited_ebook_search.results.each do |book| %>
-            <li class="book">
-              <a href="<%= book.link %>"><%= book.title %></a>
-              by <%= book.author %>
-            </li>
+                <li class="book">
+                  <a href="<%= book.link %>"><%= book.title %></a>
+                  by <%= book.author %>
+                </li>
           <% end %>
         </ol>
       </section>

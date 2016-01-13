@@ -185,10 +185,10 @@ describe KindleUnlimitedEbookSearcher do
 
   ###############################################################################
 
-    context 'when passed a query of "charles dickens" (many pages of results)' do
+    context 'when passed a query of "agile" (many pages of results)' do
 
       before(:each) do
-        @search = KindleUnlimitedEbookSearcher.new("charles dickens")
+        @search = KindleUnlimitedEbookSearcher.new("agile")
         # record and save the API request as a cassette instead of getting it each time
         VCR.use_cassette "kindle_unlimited_ebook_search/#{@search.query}" do
           @search.page
@@ -196,14 +196,14 @@ describe KindleUnlimitedEbookSearcher do
       end
 
       describe '#sanitized_query' do
-        it 'returns "charles+dickens"' do
-          expect( @search.sanitized_query ).to eq("charles+dickens")
+        it 'returns "agile"' do
+          expect( @search.sanitized_query ).to eq("agile")
         end
       end
 
       describe '#search_url' do
-        it 'returns "http://www.amazon.com/s/?url=node%3D9069934011&field-keywords=charles+dickens"' do
-          expect( @search.search_url ).to eq("http://www.amazon.com/s/?url=node%3D9069934011&field-keywords=charles+dickens")
+        it 'returns "http://www.amazon.com/s/?url=node%3D9069934011&field-keywords=agile"' do
+          expect( @search.search_url ).to eq("http://www.amazon.com/s/?url=node%3D9069934011&field-keywords=agile")
         end
       end
 

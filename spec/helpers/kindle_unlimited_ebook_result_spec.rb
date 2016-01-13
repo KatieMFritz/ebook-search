@@ -70,10 +70,10 @@ describe KindleUnlimitedEbookResult do
 
   ####################################################################################
 
-    context 'when passed a query of "charles dickens" (many pages of results)' do
+    context 'when passed a query of "agile" (many pages of results)' do
 
       before(:each) do
-        search = KindleUnlimitedEbookSearcher.new("charles dickens")
+        search = KindleUnlimitedEbookSearcher.new("agile")
         # record and save the API request as a cassette instead of getting it each time
         VCR.use_cassette "kindle_unlimited_ebook_search/#{search.query}" do
           search.page

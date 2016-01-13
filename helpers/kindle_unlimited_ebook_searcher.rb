@@ -52,15 +52,29 @@ class KindleUnlimitedEbookResult
   end
 
   def title
-    @result_html.css("h2.s-access-title").first.text
+    if @result_html.css("h2.s-access-title").any?
+      @result_html.css("h2.s-access-title").first.text
+    else
+      "Advertisement"
+    end
   end
 
   def author
-    @result_html.css("span.a-size-small.a-color-secondary")[3].text
+    if @result_html.css("span.a-size-small.a-color-secondary").any?
+      @result_html.css("span.a-size-small.a-color-secondary")[3].text
+      # sometimes in a link, sometimes not
+    else
+      "Amazon"
+    end
   end
 
   def link
-    @result_html.css("a.a-link-normal").first.attr('href')
+    # puts @result_html
+    if @result_html.css("h2.s-access-title").any?
+      @result_html.css("a.a-link-normal").first.attr('href')
+    else
+      "#"
+    end
   end
 
 end
