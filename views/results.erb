@@ -1,26 +1,14 @@
-      <p>You searched for <strong><%= params['keyword'] %></strong></p>.
-      <section>
-        <h2><a href="<%= @opac_url %>" target="_blank">Capital Area District Library</a></h2>
-        <p class="results-count"><%= @opac_count %> results</p>
-        <ol class="book-list">
-          <% @opac_records.each do |book| %>
-            <li class="book">
-              <a href="<%= book[:link] %>"><%= book[:title] %></a>
-              by <%= book[:author] %>
-            </li>
-          <% end %>
-        </ul>
-      </section>
+      <p>You searched for <strong><%= params['query'] %></strong></p>.
       <hr>
       <section>
-        <h2><a href="<%= @ku_url %>" target="_blank">Kindle Unlimited</a></h2>
-        <p class="results-count"><%= @ku_count %></p>
+        <h2><a href="<%= @kindle_unlimited_ebook_search.search_url %>" target="_blank">Kindle Unlimited</a></h2>
+        <p class="results-count"><%= @kindle_unlimited_ebook_search.total_results_count %></p>
         <ol class="book-list">
-          <% @ku_records.each do |book| %>
+          <% @kindle_unlimited_ebook_search.results.each do |book| %>
             <li class="book">
-              <a href="<%= book[:link] %>"><%= book[:title] %></a>
-              by <%= book[:author] %>
+              <a href="<%= book.link %>"><%= book.title %></a>
+              by <%= book.author %>
             </li>
           <% end %>
-        </ul>
+        </ol>
       </section>

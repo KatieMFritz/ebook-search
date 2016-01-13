@@ -1,9 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.4.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
+    diff-lcs (1.2.5)
     domain_name (0.5.25)
       unf (>= 0.0.5, < 1.0.0)
     ffi (1.9.10-x86-mingw32)
+    hashdiff (0.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     listen (3.0.5)
@@ -27,6 +32,20 @@ GEM
       netrc (~> 0.7)
     restart (1.0.2)
       listen (~> 3.0)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.1)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    safe_yaml (1.0.4)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -35,7 +54,12 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.1-x86-mingw32)
+    vcr (3.0.1)
     wdm (0.1.1)
+    webmock (1.22.6)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   x86-mingw32
@@ -44,8 +68,11 @@ DEPENDENCIES
   nokogiri
   rest-client
   restart
+  rspec
   sinatra (~> 1.4.6)
+  vcr
   wdm
+  webmock
 
 BUNDLED WITH
    1.10.6
