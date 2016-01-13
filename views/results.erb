@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Free Ebooks</title>
+    <link href="/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" rel="stylesheet">
+  </head>
+
+  <body class="container">
+    <header>
+      <h1>Find free ebooks</h1>
+    </header>
+    <main>
+      <section>
+        <h2>Capital Area District Library (OPAC)</h2>
+        <% @opac_records.each do |book| %>
+          <div class="book">
+            <h3><a href="<%= book[:link] %>"><%= book[:title] %></a></h3>
+            <p>Author: <%= book[:author] %></p>
+          </div>
+        <% end %>
+      </section>
+      <hr>
+      <section>
+        <h2>Kindle Unlimited</h2>
+        <p>Results and search link will go here</p>
+        <% @ku_records.each do |book| %>
+          <div class="book">
+            <h3><a href="<%= book[:link] %>"><%= book[:title] %></a></h3>
+            <p>Author: <%= book[:author] %></p>
+          </div>
+        <% end %>
+      </section>
+
+   </main>
+    <footer>
+      <div class="footer">
+        <p>Copyright &copy Katie Fritz, 2015</p>
+      </div>
+    </footer>
+  </body>
+</html>
