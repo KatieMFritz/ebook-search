@@ -59,10 +59,17 @@ class KindleUnlimitedEbookResult
     end
   end
 
+  def author_tag
+    @result_html.css("span.a-size-small.a-color-secondary")
+  end
+
   def author
-    if @result_html.css("span.a-size-small.a-color-secondary").any?
-      @result_html.css("span.a-size-small.a-color-secondary")[3].text
-      # sometimes in a link, sometimes not
+    if author_tag.any?
+      if author_tag[3].text.include? "and"
+        author_tag[3].text + author_tag[4].text
+      else
+        author_tag[3].text
+      end
     else
       "Amazon"
     end
