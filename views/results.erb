@@ -1,6 +1,6 @@
       <p>You searched for <strong><%= params['keyword'] %></strong></p>.
       <section>
-        <h2><a href="<%= @opac_url %>">Capital Area District Library</a></h2>
+        <h2><a href="<%= @opac_url %>" target="_blank">Capital Area District Library</a></h2>
         <p class="results-count"><%= @opac_count %> results</p>
         <ol class="book-list">
           <% @opac_records.each do |book| %>
@@ -13,7 +13,7 @@
       </section>
       <hr>
       <section>
-        <h2><a href="<%= @ku_url %>">Kindle Unlimited</a></h2>
+        <h2><a href="<%= @ku_url %>" target="_blank">Kindle Unlimited</a></h2>
         <p class="results-count"><%= @ku_count %></p>
         <ol class="book-list">
           <% @ku_records.each do |book| %>
