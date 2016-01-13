@@ -29,12 +29,16 @@ class KindleUnlimitedEbookSearcher
 
   # get text saying how many total results and clean it up
   def total_results_count
-    html.css("h2#s-result-count").text[/(\d+.*results)/, 1]
+    html.css("h2#s-result-count").text[/(\d+.*results?)/, 1]
+  end
+
+  def results_html
+    html.css("li.s-result-item")
   end
 
   # map each chunk of result html into KindleUnlimitedEbookResult
   def results
-    html.css("li.s-result-item").map do |result_html|
+    results_html.map do |result_html|
       KindleUnlimitedEbookResult.new(result_html)
     end
   end
