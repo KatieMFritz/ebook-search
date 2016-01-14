@@ -1,6 +1,6 @@
 require_relative '../../helpers/opac_ebook_searcher'
 
-# to run this, bundle install rspec
+# to run this, bundle exec rspec
 
 describe OpacEbookSearcher do
 
@@ -102,9 +102,9 @@ describe OpacEbookSearcher do
       end
 
       describe 'each item' do
-        it 'is a OpacEbookResult' do
+        it 'is a OpacSingleEbookResult' do
           @search.single_result.each do |single_result|
-            expect( single_result ).to be_a(OpacEbookResult)
+            expect( single_result ).to be_a(OpacSingleEbookResult)
           end
         end
       end
@@ -167,9 +167,9 @@ describe OpacEbookSearcher do
       end
 
       describe 'each item' do
-        it 'is a OpacEbookResult' do
+        it 'is a OpacMultiEbookResult' do
           @search.results.each do |result|
-            expect( result ).to be_a(OpacEbookResult)
+            expect( result ).to be_a(OpacMultiEbookResult)
           end
         end
       end
@@ -232,9 +232,9 @@ describe OpacEbookSearcher do
         end
 
         describe 'each item' do
-          it 'is a OpacEbookResult' do
+          it 'is a OpacMultiEbookResult' do
             @search.results.each do |result|
-              expect( result ).to be_a(OpacEbookResult)
+              expect( result ).to be_a(OpacMultiEbookResult)
             end
           end
         end

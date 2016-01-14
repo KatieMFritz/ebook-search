@@ -43,7 +43,7 @@ class OpacEbookSearcher
 
   def single_result
     one_result_html.map do |single_result_html|
-      OpacEbookResult.new(single_result_html)
+      OpacSingleEbookResult.new(single_result_html)
     end
   end
 
@@ -53,42 +53,48 @@ class OpacEbookSearcher
 
   def results
     results_html.map do |result_html|
-      OpacEbookResult.new(result_html)
+      OpacMultiEbookResult.new(result_html)
     end
   end
 
 end
 
-class OpacEbookResult
+class OpacSingleEbookResult
 
   def initialize(single_result_html)
     @single_result_html = single_result_html
   end
 
+  def title
+    @single_result_html.css("td.bibInfoData").first.text.gsub("\n", "")
+  end
+
+  def author
+    @single_result_html.css("td.bibInfoData a").first.text
+  end
+
+  def link
+    @single_result_html.css("table.bibLinks a").first.attr('href')
+  end
+
+end
+
+class OpacMultiEbookResult
+
   def initialize(result_html)
     @result_html = result_html
   end
-#
-#   def title
-#     if @result_html.css("h2.briefcitTitle a").any?
-#       @result_html.css("h2.briefcitTitle a").first.text
-#     elsif @single_result_html.css("td.bibInfoData").any?
-#       @single_result_html.css("td.bibInfoData").first.text
-#     end
-#   end
-#
-#   def author
-#     if @result_html.css(".briefcitAuthor").any?
-#       @result_html.css("h2.briefcitTitle a").first.text.gsub("\n", "")
-#     elsif @single_result_html.css("td.bibInfoData a").any?
-#       @single_result_html.css("td.bibInfoData a").first.text
-#     end
-#   end
-#
-#   def link
-#     if @result_html.css(".briefcitActions a").any?
-#       @result_html.css(".briefcitActions a").first.attr('href')
-#     elsif @single_result_html.css("table.bibLinks a").any?
-#       @single_result_html.css("table.bibLinks a").first.attr('href')
-#     end
+
+  def title
+    @result_html.css("h2.briefcitTitle a").first.text
   end
+
+  def author
+    @result_html.css("h2.briefcitTitle a").first.text.gsub("\n", "")
+  end
+
+  def link
+    @result_html.css(".briefcitActions a").first.attr('href')
+  end
+
+end
