@@ -12,6 +12,7 @@ class EbookSearcher < Sinatra::Base
   get '/results' do
     query = params[:query].to_s
     @kindle_unlimited_ebook_search = KindleUnlimitedEbookSearcher.new(query)
+    @opac_ebook_search = OpacEbookSearcher.new(query)
     erb :results
   end
 
