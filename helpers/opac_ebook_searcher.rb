@@ -46,18 +46,16 @@ class OpacEbookSearcher
       OpacEbookResult.new(single_result_html)
     end
   end
-  #
-  # def multi_results_html
-  #   if html.css("div.briefcitDetails").any?
-  #     html.css("div.briefcitDetails")
-  #   end
-  # end
-  #
-  # def multi_results
-  #   multi_results_html.map do |result_html|
-  #     OpacEbookResult.new(result_html)
-  #   end
-  # end
+
+  def results_html
+    html.css("div.briefcitDetails")
+  end
+
+  def results
+    results_html.map do |result_html|
+      OpacEbookResult.new(result_html)
+    end
+  end
 
 end
 
@@ -66,10 +64,10 @@ class OpacEbookResult
   def initialize(single_result_html)
     @single_result_html = single_result_html
   end
-#
-#   def initialize(result_html)
-#     @result_html = result_html
-#   end
+
+  def initialize(result_html)
+    @result_html = result_html
+  end
 #
 #   def title
 #     if @result_html.css("h2.briefcitTitle a").any?
