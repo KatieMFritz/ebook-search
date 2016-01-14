@@ -37,23 +37,15 @@ class OpacEbookSearcher
     end
   end
 
-  # def no_results_html
-  #   if html.css("div.formPart").any?
-  #     "No results"
-  #   end
-  # end
-  #
-  # def one_result_html
-  #   if html.css("div.bibDisplayContentMain").any?
-  #     html.css("div.bibDisplayContentMain")
-  #   end
-  # end
-  #
-  # def single_result
-  #   one_result_html.map do |single_result_html|
-  #     OpacEbookResult.new(single_result_html)
-  #   end
-  # end
+  def one_result_html
+    html.css("div.bibDisplayContentMain")
+  end
+
+  def single_result
+    one_result_html.map do |single_result_html|
+      OpacEbookResult.new(single_result_html)
+    end
+  end
   #
   # def multi_results_html
   #   if html.css("div.briefcitDetails").any?
@@ -69,11 +61,11 @@ class OpacEbookSearcher
 
 end
 
-# class OpacEbookResults
-#
-#   def initialize(single_result_html)
-#     @single_result_html = single_result_html
-#   end
+class OpacEbookResult
+
+  def initialize(single_result_html)
+    @single_result_html = single_result_html
+  end
 #
 #   def initialize(result_html)
 #     @result_html = result_html
@@ -101,4 +93,4 @@ end
 #     elsif @single_result_html.css("table.bibLinks a").any?
 #       @single_result_html.css("table.bibLinks a").first.attr('href')
 #     end
-#   end
+  end

@@ -32,6 +32,7 @@ class KindleUnlimitedEbookSearcher
     html.css("h2#s-result-count").text[/(\d+.*results?)/, 1]
   end
 
+  # get the array of result html chunks
   def results_html
     html.css("li.s-result-item")
   end
