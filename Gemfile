@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'sinatra', '~> 1.4.6'
 gem 'nokogiri' #pull html from other sites
 gem 'rest-client' #api stuff
+gem 'sass'
 
 group :development do
   gem 'restart' #don't have to rackup every single time

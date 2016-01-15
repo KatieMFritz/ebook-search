@@ -46,6 +46,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
     safe_yaml (1.0.4)
+    sass (3.4.20)
     sinatra (1.4.6)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -69,6 +70,7 @@ DEPENDENCIES
   rest-client
   restart
   rspec
+  sass
   sinatra (~> 1.4.6)
   vcr
   wdm

@@ -70,7 +70,7 @@ class KindleUnlimitedEbookResult
 
   def author
     if author_tag.any?
-      if author_tag[3].text.include? "and"
+      if author_tag[3].text.include? " and"
         author_tag[3].text + author_tag[4].text
       else
         author_tag[3].text
