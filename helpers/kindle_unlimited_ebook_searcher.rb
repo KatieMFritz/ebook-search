@@ -29,7 +29,11 @@ class KindleUnlimitedEbookSearcher
 
   # get text saying how many total results and clean it up
   def total_results_count
-    html.css("h2#s-result-count").text[/(\d+.*results?)/, 1]
+    if html.css("h2#s-result-count").any?
+      html.css("h2#s-result-count").text[/(\d+.*results?)/, 1]
+    else
+      "No results"
+    end
   end
 
   # get the array of result html chunks

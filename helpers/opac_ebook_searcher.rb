@@ -90,7 +90,7 @@ class OpacMultiEbookResult
   end
 
   def author
-    @result_html.css(".briefcitAuthor").first.text.gsub(/\\n|\d\d\d\d|\-|author|,\s\./,  "")
+    @result_html.css(".briefcitAuthor").first.text.gsub(/\.|\(|\)|(, )?author|\,\s\d{4}|-|\d{4}/, "")
   end
 
   def link

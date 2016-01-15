@@ -7,9 +7,6 @@ require_relative 'helpers/opac_ebook_searcher'
 
 class EbookSearcher < Sinatra::Base
   get '/' do
-    erb :search
-  end
-  get '/results' do
     query = params[:query].to_s
     @kindle_unlimited_ebook_search = KindleUnlimitedEbookSearcher.new(query)
     @opac_ebook_search = OpacEbookSearcher.new(query)

@@ -40,8 +40,8 @@ describe KindleUnlimitedEbookSearcher do
 
     #later i want to add an error message here
     describe '#total_results_count' do
-      it 'is nil' do
-        expect( @search.total_results_count ).to be_nil
+      it 'returns "No results"' do
+        expect( @search.total_results_count ).to eq("No results")
       end
     end
 

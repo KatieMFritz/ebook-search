@@ -1,4 +1,8 @@
       <p>You searched for <strong><%= params['query'] %></strong></p>.
+      <form action="/">
+        <label for="query">Keyword search</label>
+        <input type="text" name="query" value="">
+      </form>
       <hr>
       <section>
         <h2><a href="<%= @kindle_unlimited_ebook_search.search_url %>" target="_blank">Kindle Unlimited</a></h2>
