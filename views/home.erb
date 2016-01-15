@@ -1,0 +1,9 @@
+<% content_for :jumbotron do %>
+  <h1>Find free ebooks</h1>
+  <p>Search for an author, title, or keyword. Find ebooks you can borrow for free.</p>
+  <form class="form-inline" action="/results">
+    <label for="query" class="sr-only">Keyword search</label>
+    <input type="text" name="query" class="form-control" placeholder="search for books" value="">
+    <button type="submit" class="btn btn-success">Search</button>
+  </form>
+<% end %>

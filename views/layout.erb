@@ -1,23 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Find Free Ebooks</title>
     <link href="/stylesheets/app.css" rel="stylesheet">
   </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="/">Find Free Ebooks</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <form class="navbar-form navbar-right" action="/results">
+            <label for="query" class="sr-only">Keyword search</label>
+            <input type="text" name="query" class="form-control" placeholder="search for books" value="">
+            <button type="submit" class="btn btn-success">Search</button>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
 
-  <body class="container">
-    <header>
-      <h1>Find free ebooks</h1>
-    </header>
-    <main>
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <%= yield_content :jumbotron %>
+      </div>
+    </div>
+
+    <div class="container">
       <%= yield %>
-
-   </main>
-    <footer>
-      <div class="footer">
-        <p>Created by Katie Fritz, 2015</p>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <p class="text-muted">Created by Katie Fritz, 2016.</p>
       </div>
     </footer>
+
   </body>
 </html>
